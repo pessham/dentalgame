@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歯科リズムゲーム</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 音楽ファイル -->
+        <audio id="bgm" preload="auto" loop>
+            <source src="assets/Smile Wide.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- ヘッダー -->
+        <header class="game-header">
+            <div class="score-display">
+                <span class="score">スコア: <span id="score">0</span></span>
+                <span class="combo">コンボ: <span id="combo">0</span></span>
+            </div>
+            <div class="fever-gauge">
+                <div class="fever-bar">
+                    <div class="fever-fill" id="fever-fill"></div>
+                </div>
+                <span class="fever-text">フィーバー</span>
+            </div>
+        </header>
+
+        <!-- ゲーム画面 -->
+        <main class="game-area">
+            <!-- ノーツが降りてくる1つのレーン -->
+            <div class="single-lane-container">
+                <div class="single-lane" id="single-lane">
+                    <div class="target-area"></div>
+                </div>
+                <div class="center-indicator">
+                    <div class="tooth-mascot" id="tooth-mascot">🦷</div>
+                </div>
+            </div>
+
+            <!-- 判定表示 -->
+            <div class="judgment-display" id="judgment-display"></div>
+            
+            <!-- デバッグ情報 -->
+            <div class="debug-info" id="debug-info">
+                <div>ゲーム時間: <span id="game-time">0.00</span>s</div>
+                <div>次のノーツ: <span id="next-note">-</span></div>
+                <div>判定タイミング: <span id="timing-diff">-</span></div>
+            </div>
+        </main>
+
+        <!-- タップエリア -->
+        <footer class="tap-area">
+            <div class="tap-button red-tap" id="red-tap">
+                <span class="tap-label">強く噛む</span>
+            </div>
+            <div class="tap-button blue-tap" id="blue-tap">
+                <span class="tap-label">軽く噛む</span>
+            </div>
+        </footer>
+
+        <!-- ゲーム開始画面 -->
+        <div class="start-screen" id="start-screen">
+            <h1>歯科リズムゲーム</h1>
+            <div class="mascot-large">🦷✨</div>
+            <p>歯のリズムに合わせてタップ！</p>
+            <button class="start-button" id="start-button">ゲームスタート</button>
+            <div class="instructions">
+                <p><strong>遊び方：</strong></p>
+                <p>・赤い球: 「強く噛む」ボタンをタップ</p>
+                <p>・青い球: 「軽く噛む」ボタンをタップ</p>
+                <p>・球の色に合わせてタップしよう！</p>
+            </div>
+        </div>
+
+        <!-- リザルト画面 -->
+        <div class="result-screen hidden" id="result-screen">
+            <h2>リザルト</h2>
+            <div class="final-score">
+                <p>最終スコア: <span id="final-score">0</span></p>
+                <p>最大コンボ: <span id="max-combo">0</span></p>
+            </div>
+            <div class="unlocked-card">
+                <h3>🎉 歯科知識カード解放！</h3>
+                <div class="card-preview">
+                    <h4 id="card-title">虫歯のメカニズム</h4>
+                    <p id="card-description">虫歯は細菌が糖分を分解して作る酸によって歯が溶ける現象です。</p>
+                </div>
+            </div>
+            <button class="restart-button" id="restart-button">もう一度プレイ</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>

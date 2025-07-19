@@ -1,0 +1,106 @@
+{
+  "trackId": "dental_red_blue_easy",
+  "title": "噛む力コントロール（初級）",
+  "bpm": 120,
+  "duration": 60,
+  "difficulty": "easy",
+  "notes": [
+    { "time": 2.0, "type": "red" },
+    { "time": 3.0, "type": "blue" },
+    { "time": 4.0, "type": "blue" },
+    { "time": 5.0, "type": "red" },
+    { "time": 6.5, "type": "blue" },
+    { "time": 7.5, "type": "red" },
+    { "time": 8.5, "type": "blue" },
+    { "time": 9.5, "type": "blue" },
+    { "time": 10.5, "type": "red" },
+    
+    { "time": 12.0, "type": "blue" },
+    { "time": 12.5, "type": "red" },
+    { "time": 13.0, "type": "blue" },
+    { "time": 13.5, "type": "blue" },
+    { "time": 14.0, "type": "red" },
+    { "time": 15.5, "type": "blue" },
+    { "time": 16.5, "type": "red" },
+    { "time": 17.0, "type": "blue" },
+    { "time": 17.5, "type": "red" },
+    { "time": 18.0, "type": "blue" },
+    
+    { "time": 19.0, "type": "red" },
+    { "time": 20.0, "type": "blue" },
+    { "time": 20.5, "type": "blue" },
+    { "time": 21.0, "type": "red" },
+    { "time": 21.5, "type": "blue" },
+    { "time": 22.0, "type": "red" },
+    { "time": 23.0, "type": "blue" },
+    { "time": 24.0, "type": "red" },
+    { "time": 25.0, "type": "blue" },
+    { "time": 26.0, "type": "red" },
+    
+    { "time": 27.0, "type": "blue" },
+    { "time": 28.0, "type": "blue" },
+    { "time": 28.5, "type": "red" },
+    { "time": 29.0, "type": "blue" },
+    { "time": 30.0, "type": "red" },
+    { "time": 31.5, "type": "blue" },
+    { "time": 32.5, "type": "red" },
+    { "time": 33.0, "type": "blue" },
+    { "time": 33.5, "type": "blue" },
+    { "time": 34.0, "type": "red" },
+    
+    { "time": 35.0, "type": "blue" },
+    { "time": 36.0, "type": "red" },
+    { "time": 37.0, "type": "blue" },
+    { "time": 38.0, "type": "red" },
+    { "time": 39.0, "type": "blue" },
+    { "time": 40.0, "type": "red" },
+    { "time": 41.0, "type": "blue" },
+    { "time": 42.0, "type": "blue" },
+    { "time": 42.5, "type": "red" },
+    { "time": 43.0, "type": "blue" },
+    
+    { "time": 44.0, "type": "red" },
+    { "time": 45.0, "type": "blue" },
+    { "time": 46.0, "type": "red" },
+    { "time": 47.0, "type": "blue" },
+    { "time": 48.0, "type": "red" },
+    { "time": 49.0, "type": "blue" },
+    { "time": 50.0, "type": "red" },
+    { "time": 51.0, "type": "blue" },
+    { "time": 52.0, "type": "red" },
+    { "time": 53.0, "type": "blue" },
+    
+    { "time": 54.0, "type": "red" },
+    { "time": 55.0, "type": "blue" },
+    { "time": 56.0, "type": "red" },
+    { "time": 57.0, "type": "blue" },
+    { "time": 58.0, "type": "red" },
+    { "time": 59.0, "type": "blue" }
+  ],
+  "note_types": {
+    "red": {
+      "name": "強く噛む",
+      "description": "硬い食べ物や歯ごたえのある食材",
+      "color": "#f44336",
+      "points": {
+        "perfect": 200,
+        "good": 100
+      }
+    },
+    "blue": {
+      "name": "軽く噛む", 
+      "description": "柔らかい食べ物や繊細な食材",
+      "color": "#2196f3",
+      "points": {
+        "perfect": 100,
+        "good": 50
+      }
+    }
+  },
+  "metadata": {
+    "description": "噛む力のコントロールを学ぶ初級譜面。赤い球は強く、青い球は軽く噛むイメージでタップしよう。",
+    "creator": "DentalRhythm Team",
+    "created_date": "2025-07-19",
+    "dental_tip": "適切な噛む力をコントロールすることで、歯や顎への負担を軽減し、消化も良くなります。硬いものを噛む時は奥歯を使い、優しく何度かに分けて噛みましょう。"
+  }
+}
