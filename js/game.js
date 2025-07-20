@@ -109,7 +109,7 @@ class DentalRhythmGame {
         this.currentTrack = {
             trackId: "smile_wide_dental",
             bpm: 128, // Smile Wideのテンポに合わせて調整
-            duration: 60,
+            duration: 75, // 75秒に延長
             notes: [
                 // 楽曲に合わせたタイミング調整
                 { time: 1.0, type: "blue" },
@@ -169,7 +169,65 @@ class DentalRhythmGame {
                 { time: 28.0, type: "blue" },
                 { time: 28.5, type: "red" },
                 { time: 29.0, type: "blue" },
-                { time: 29.5, type: "red" }
+                { time: 29.5, type: "red" },
+                // 新たに追加したノーツ（30-75秒）
+                { time: 31.0, type: "blue" },
+                { time: 32.0, type: "red" },
+                { time: 33.0, type: "blue" },
+                { time: 33.5, type: "blue" },
+                { time: 34.0, type: "red" },
+                { time: 35.0, type: "blue" },
+                { time: 36.0, type: "red" },
+                { time: 37.0, type: "blue" },
+                { time: 37.5, type: "red" },
+                { time: 38.0, type: "blue" },
+                { time: 39.0, type: "red" },
+                { time: 40.0, type: "blue" },
+                { time: 40.5, type: "blue" },
+                { time: 41.0, type: "red" },
+                { time: 42.0, type: "blue" },
+                { time: 43.0, type: "red" },
+                { time: 44.0, type: "blue" },
+                { time: 44.5, type: "red" },
+                { time: 45.0, type: "blue" },
+                { time: 46.0, type: "red" },
+                { time: 47.0, type: "blue" },
+                { time: 47.5, type: "blue" },
+                { time: 48.0, type: "red" },
+                { time: 49.0, type: "blue" },
+                { time: 50.0, type: "red" },
+                { time: 51.0, type: "blue" },
+                { time: 51.5, type: "red" },
+                { time: 52.0, type: "blue" },
+                { time: 53.0, type: "red" },
+                { time: 54.0, type: "blue" },
+                { time: 54.5, type: "blue" },
+                { time: 55.0, type: "red" },
+                { time: 56.0, type: "blue" },
+                { time: 57.0, type: "red" },
+                { time: 58.0, type: "blue" },
+                { time: 58.5, type: "red" },
+                { time: 59.0, type: "blue" },
+                { time: 60.0, type: "red" },
+                { time: 61.0, type: "blue" },
+                { time: 61.5, type: "blue" },
+                { time: 62.0, type: "red" },
+                { time: 63.0, type: "blue" },
+                { time: 64.0, type: "red" },
+                { time: 65.0, type: "blue" },
+                { time: 65.5, type: "red" },
+                { time: 66.0, type: "blue" },
+                { time: 67.0, type: "red" },
+                { time: 68.0, type: "blue" },
+                { time: 68.5, type: "blue" },
+                { time: 69.0, type: "red" },
+                { time: 70.0, type: "blue" },
+                { time: 71.0, type: "red" },
+                { time: 72.0, type: "blue" },
+                { time: 72.5, type: "red" },
+                { time: 73.0, type: "blue" },
+                { time: 74.0, type: "red" },
+                { time: 75.0, type: "blue" }
             ]
         };
     }
@@ -336,6 +394,7 @@ class DentalRhythmGame {
         this.feverGauge = Math.min(100, this.feverGauge + feverIncrease);
         
         this.showJudgment(judgment);
+        this.createExplosionEffect(judgment);
         this.removeNote(noteObj.element);
         this.updateDisplay();
         
@@ -387,6 +446,84 @@ class DentalRhythmGame {
             this.elements.judgmentDisplay.textContent = '';
             this.elements.judgmentDisplay.className = 'judgment-display';
         }, 500);
+    }
+    
+    createExplosionEffect(judgment) {
+        // 爆発エフェクトの作成
+        const explosion = document.createElement('div');
+        explosion.className = `explosion-effect explosion-${judgment}`;
+        
+        // ターゲットエリアの中央に配置
+        const targetArea = document.querySelector('.target-area');
+        const rect = targetArea.getBoundingClientRect();
+        explosion.style.left = (rect.left + rect.width/2 - 50) + 'px';
+        explosion.style.top = (rect.top + rect.height/2 - 50) + 'px';
+        
+        document.body.appendChild(explosion);
+        
+        // パーティクルエフェクトを追加
+        this.createParticleEffect(judgment, rect.left + rect.width/2, rect.top + rect.height/2);
+        
+        // エフェクトを自動削除
+        setTimeout(() => {
+            if (explosion.parentNode) {
+                explosion.parentNode.removeChild(explosion);
+            }
+        }, 600);
+    }
+    
+    createParticleEffect(judgment, centerX, centerY) {
+        // 8方向にパーティクルを飛ばす
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('div');
+            particle.className = `particle particle-${judgment}`;
+            
+            const angle = (i * 45) * Math.PI / 180;
+            const distance = 60 + Math.random() * 40;
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+            
+            particle.style.left = (centerX - 3) + 'px';
+            particle.style.top = (centerY - 3) + 'px';
+            particle.style.setProperty('--particle-x', x + 'px');
+            particle.style.setProperty('--particle-y', y + 'px');
+            
+            document.body.appendChild(particle);
+            
+            // パーティクルを自動削除
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 800);
+        }
+    }
+    
+    createSuccessSound() {
+        // Web Audio APIでキラリーン音を生成
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            // キラリーン音の周波数設定
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1);
+            oscillator.frequency.exponentialRampToValueAtTime(1600, audioContext.currentTime + 0.2);
+            
+            // 音量設定
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+            
+            oscillator.type = 'sine';
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.3);
+        } catch (e) {
+            console.log('Audio effect not supported:', e);
+        }
     }
     
     addTapEffect(color) {
@@ -469,6 +606,11 @@ class DentalRhythmGame {
         this.elements.finalScore.textContent = this.score;
         this.elements.maxComboDisplay.textContent = this.maxCombo;
         this.elements.resultScreen.classList.remove('hidden');
+        
+        // キラリーン効果音再生
+        setTimeout(() => {
+            this.createSuccessSound();
+        }, 500);
         
         // 残っているノーツを削除
         document.querySelectorAll('.note').forEach(note => {
