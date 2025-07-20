@@ -386,6 +386,31 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* 成果予測セクションのモバイル最適化 */
+            .result-card {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+            
+            .result-card > div[style*="flex: 0 0 300px"] {
+                flex: none !important;
+                width: 100% !important;
+            }
+            
+            .result-card > div[style*="flex: 1"] {
+                flex: none !important;
+            }
+            
+            .result-card img {
+                height: 200px !important;
+                width: 100% !important;
+            }
+            
+            /* 2番目のカード（広告・イベント）の順序調整 */
+            .result-card:nth-child(3) {
+                flex-direction: column-reverse !important;
+            }
         }
     </style>
 </head>
