@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信州からAIが使える企業に | 補助金75%OFF AI導入研修</title>
+    <meta name="description" content="リスキリング助成金75%OFFでAI導入研修。残業削減・業務自動化・採用力向上を実現。申請代行で御社は押印するだけ。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sub-title {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f39c12, #e74c3c);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* 課題セクション */
+        .problems {
+            background: white;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .problem-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .problem-text {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .solution-text {
+            font-size: 1rem;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        /* 数字で見る課題 */
+        .stats {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #f39c12;
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        /* ソリューション */
+        .solution {
+            background: white;
+        }
+        
+        .solution-highlight {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .solution-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .solution-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+        
+        /* コース */
+        .courses {
+            background: #f8f9fa;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid;
+        }
+        
+        .course-card.beginner {
+            border-top-color: #3498db;
+        }
+        
+        .course-card.intermediate {
+            border-top-color: #f39c12;
+        }
+        
+        .course-card.advanced {
+            border-top-color: #e74c3c;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-level {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .course-content {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        .course-benefit {
+            background: #e8f6f3;
+            padding: 15px;
+            border-radius: 10px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        /* 費用・補助金 */
+        .pricing {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+        }
+        
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .original-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .discounted-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+        
+        .subsidy-info {
+            background: #e8f6f3;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        /* 成果事例 */
+        .results {
+            background: white;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .company-info {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .result-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
+            margin: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(243, 156, 18, 0.4);
+        }
+        
+        /* 連絡先 */
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .sub-title {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .problem-grid,
+            .course-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ファーストビュー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="main-title">信州からAIが使える企業に。</h1>
+                <p class="sub-title">
+                    <span class="highlight">補助金75%OFF</span> + 申請まるごと代行で、<br>
+                    今こそ社内をAIネイティブ化
+                </p>
+                <div style="margin-top: 40px;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/_mvbSP_lK2U?autoplay=1&mute=1" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 15px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- こんなお悩みありませんか？ -->
+    <section class="section problems">
+        <div class="container">
+            <h2 class="section-title">こんなお悩みありませんか？</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-text">「残業でクタクタ…」</div>
+                    <div class="solution-text">→ AIで定時退社を当たり前に</div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-text">「うちって古い？」</div>
+                    <div class="solution-text">→ AI活用を掲げて採用ページが映える</div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-text">「あの人しか分からない仕事」</div>
+                    <div class="solution-text">→ AIで手順を自動マニュアル化</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課題を数字で -->
+    <section class="section stats">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">課題を数字で一目に</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">100万円</span>
+                    <div class="stat-text">月40hの残業 = 年間約100万円/人のコスト</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">70万円</span>
+                    <div class="stat-text">1名退職→再採用コスト平均70万円超</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">▲15%</span>
+                    <div class="stat-text">属人ノウハウによる停滞で売上▲15%のケースも</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解決策 -->
+    <section class="section solution">
+        <div class="container">
+            <h2 class="section-title">解決策 = リスキリング助成金 × 30h e-Learningパック</h2>
+            <div class="solution-highlight">
+                <div class="solution-title">充実のサポート体制</div>
+                <div class="solution-points">
+                    <div>📚 各コース30h e-Learning + 月1ハンズオン相談会</div>
+                    <div>💰 補助金利用で <strong>実質7.5万円/人（75%OFF）</strong></div>
+                    <div>📋 申請書類は <strong>社労士がフル代行</strong> ─ 御社は押印するだけ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コース選択 -->
+    <section class="section courses">
+        <div class="container">
+            <h2 class="section-title">コースは３タイプから選択（各30h）</h2>
+            <div class="course-grid">
+                <div class="course-card beginner">
+                    <div class="course-level">初級コース</div>
+                    <div class="course-content">
+                        ChatGPTでメール自動化<br>
+                        簡単RPAで業務効率化
+                    </div>
+                    <div class="course-benefit">残業▲30%を実現</div>
+                </div>
+                <div class="course-card intermediate">
+                    <div class="course-level">中級コース</div>
+                    <div class="course-content">
+                        ノーコードHP制作<br>
+                        データ分析自動化
+                    </div>
+                    <div class="course-benefit">コスト▲40%・利益+15%</div>
+                </div>
+                <div class="course-card advanced">
+                    <div class="course-level">上級コース</div>
+                    <div class="course-content">
+                        自社専用AIエージェント<br>
+                        業務全自動化システム
+                    </div>
+                    <div class="course-benefit">コスト▲60%・利益+30%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 費用・補助金 -->
+    <section class="section pricing">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">費用 & 補助金フロー</h2>
+            <div class="pricing-card">
+                <div class="original-price">受講料: 30万円/人</div>
+                <div class="discounted-price">実質負担: 7.5万円/人</div>
+                <div class="subsidy-info">
+                    <strong>助成率:</strong> 経費75% + 賃金助成 960円/h<br>
+                    <strong>お支払い→約3-4ヶ月後に補助金振込</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成果イメージ -->
+    <section class="section results">
+        <div class="container">
+            <h2 class="section-title">成果イメージ</h2>
+            <div class="result-card">
+                <div class="company-info">製造業A社（社員30名）の事例</div>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <strong>月残業▲25h/人</strong><br>
+                        ⇒ 年▲900万円
+                    </div>
+                    <div class="result-item">
+                        <strong>Web営業自動化</strong><br>
+                        新規案件+6件/月
+                    </div>
+                    <div class="result-item">
+                        <strong>採用力向上</strong><br>
+                        内定承諾率+18%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">導入スケジュール（例）</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; gap: 20px;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #3498db;">
+                        <strong>NOW</strong> | 無料相談・課題ヒアリング
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #f39c12;">
+                        <strong>+1ヶ月</strong> | 計画書提出（社労士代行）
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #2ecc71;">
+                        <strong>+2ヶ月</strong> | 受講開始 & Slack開設
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #e74c3c;">
+                        <strong>+5ヶ月</strong> | AIネイティブ業務スタート
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #9b59b6;">
+                        <strong>+6ヶ月</strong> | 支給決定・補助金入金
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #34495e;">
+                        <strong>6ヶ月〜</strong> | Slackコミュニティで継続アップデート
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">導入までのシンプル３ステップ</h2>
+            <div style="font-size: 1.3rem; margin-bottom: 40px;">
+                ✅ コース（初級 / 中級 / 上級）をその場で選択<br>
+                ✅ 研修開始希望月を確定<br>
+                ✅ 押印→完了（書類作成・提出は当社チームが担当）
+            </div>
+            <a href="#contact" class="cta-button">無料相談を申し込む</a>
+            <a href="tel:050-1234-5678" class="cta-button">今すぐ電話で相談</a>
+        </div>
+    </section>
+
+    <!-- 連絡先 -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">お問い合わせ & 契約フロー</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-title">契約窓口（e-Learning・請求書）</div>
+                    <p><strong>DataPivotStrategies株式会社</strong><br>
+                    〒105-6923 東京都港区虎ノ門4-1-1<br>
+                    神谷町トラストタワー23F<br>
+                    <a href="https://datapivot.co.jp/" style="color: #3498db;">https://datapivot.co.jp/</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-title">信州サポート窓口（講師・現場伴走）</div>
+                    <p><strong>株式会社メタマケ</strong><br>
+                    本社：東京都多摩市落合2-17-10<br>
+                    信州拠点：サザンガク<br>
+                    〒390-0874 長野県松本市大手3-3-9<br>
+                    NTT東日本松本大名町ビル1F<br>
+                    講師・担当：石澤 亮輔<br>
+                    <a href="https://pessham.com/" style="color: #3498db;">https://pessham.com/</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // アニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.problem-card, .course-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
