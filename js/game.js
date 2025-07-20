@@ -12,12 +12,12 @@ class DentalRhythmGame {
         this.notes = [];
         this.currentTrack = null;
         
-        // タップ判定タイミング (ms) - 緩く設定
-        this.perfectTiming = 100;
-        this.goodTiming = 200;
+        // タップ判定タイミング (ms) - 厳格化
+        this.perfectTiming = 50;  // 50ms以内でPerfect
+        this.goodTiming = 120;    // 120ms以内でGood
         
         // 落下時間とオフセット
-        this.fallDuration = 3000; // 3秒で落下
+        this.fallDuration = 2500; // 2.5秒で落下（タイミング精度向上）
         this.musicOffset = 0; // 音楽とのオフセット調整
         
         // 要素の取得
@@ -274,7 +274,7 @@ class DentalRhythmGame {
                 if (this.isPlaying) {
                     this.createNote(noteData);
                 }
-            }, (noteData.time * 1000) - this.fallDuration + this.musicOffset);
+            }, Math.max(0, (noteData.time * 1000) - this.fallDuration + this.musicOffset)); // 負の値を防ぐ
         });
         
         // ゲーム終了タイマー
@@ -304,8 +304,9 @@ class DentalRhythmGame {
         // シングルレーンに配置
         this.elements.singleLane.appendChild(note);
         
-        // アニメーション設定
+        // アニメーション設定（正確なタイミングで落下）
         note.style.animationDuration = `${this.fallDuration}ms`;
+        note.style.animationTimingFunction = 'linear'; // 等速落下
         
         // ノーツ管理配列に追加
         this.notes.push({
@@ -320,7 +321,7 @@ class DentalRhythmGame {
             if (note.parentNode && !note.dataset.hit) {
                 this.missNote(note);
             }
-        }, this.fallDuration + 200);
+        }, this.fallDuration + 100); // タイミングを短縮
     }
     
     handleTap(color, event) {
@@ -348,26 +349,46 @@ class DentalRhythmGame {
         // 判定対象のノーツを探す（色が一致するもの）
         let closestNote = null;
         let minTimeDiff = Infinity;
+        let bestMatchInfo = null;
         
         this.notes.forEach(noteObj => {
             if (noteObj.hit) return;
             if (noteObj.data.type !== color) return; // 色が一致しない場合は無視
             
-            // ノーツが判定エリアに近い位置にあるかチェック
+            // ノーツが判定エリアに到達する正確な時刻を計算
             const noteTargetTime = noteObj.data.time;
             const timeDiff = Math.abs(gameTime - noteTargetTime);
             
+            // デバッグ情報更新
+            if (timeDiff < minTimeDiff) {
+                bestMatchInfo = {
+                    noteTime: noteTargetTime,
+                    currentTime: gameTime,
+                    diff: timeDiff * 1000,
+                    color: color,
+                    noteColor: noteObj.data.type
+                };
+            }
+            
+            // 判定範囲内の最も近いノーツを選択
             if (timeDiff < minTimeDiff && timeDiff <= this.goodTiming / 1000) {
                 minTimeDiff = timeDiff;
                 closestNote = noteObj;
             }
         });
         
+        // デバッグ情報表示
+        if (bestMatchInfo) {
+            this.elements.timingDiff.textContent = `${bestMatchInfo.diff.toFixed(1)}ms (${bestMatchInfo.color}->${bestMatchInfo.noteColor})`;
+        } else {
+            this.elements.timingDiff.textContent = 'No notes available';
+        }
+        
         if (closestNote) {
             this.hitNote(closestNote, minTimeDiff * 1000);
         } else {
-            // デバッグ情報更新
-            this.elements.timingDiff.textContent = 'No target note';
+            // 判定範囲外のタップは無視（ミスにしない）
+            console.log(`Tap outside judgment range: ${bestMatchInfo ? bestMatchInfo.diff.toFixed(1) : 'N/A'}ms`);
         }
     }
     
