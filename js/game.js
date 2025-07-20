@@ -68,9 +68,40 @@ class DentalRhythmGame {
             console.error('BGM loading error:', e);
         });
         
-        // タッチイベントのデフォルト動作を防ぐ
-        document.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
+        // モバイル音楽再生用のユーザーインタラクション初期化
+        this.audioInitialized = false;
+        this.initAudioOnFirstTouch();
+        
+        // ゲームエリア以外のタッチイベントのみ防ぐ
+        document.addEventListener('touchstart', (e) => {
+            // ゲームボタン以外のタッチでのみデフォルト動作を防ぐ
+            if (!e.target.closest('.tap-button, .start-button, .restart-button')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
         document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+    }
+    
+    initAudioOnFirstTouch() {
+        const initAudio = () => {
+            if (!this.audioInitialized) {
+                this.elements.bgm.muted = false;
+                this.elements.bgm.volume = 0.7;
+                // モバイルでの音楽初期化
+                this.elements.bgm.play().then(() => {
+                    this.elements.bgm.pause();
+                    this.elements.bgm.currentTime = 0;
+                    this.audioInitialized = true;
+                    console.log('Audio initialized for mobile');
+                }).catch(e => {
+                    console.log('Audio initialization failed:', e);
+                });
+            }
+        };
+        
+        // 最初のタッチで音楽を初期化
+        document.addEventListener('touchstart', initAudio, { once: true });
+        document.addEventListener('click', initAudio, { once: true });
     }
     
     loadSampleTrack() {
@@ -158,11 +189,17 @@ class DentalRhythmGame {
         this.elements.resultScreen.classList.add('hidden');
         this.elements.debugInfo.style.display = 'block';
         
-        // BGM再生開始
+        // BGM再生開始（モバイル対応）
         this.elements.bgm.currentTime = 0;
-        this.elements.bgm.play().catch(e => {
-            console.error('BGM play failed:', e);
-        });
+        if (this.audioInitialized) {
+            this.elements.bgm.play().catch(e => {
+                console.error('BGM play failed:', e);
+                // 音楽が再生できなくてもゲームは続行
+            });
+        } else {
+            // 音楽初期化がまだの場合は無音でゲーム開始
+            console.log('Audio not initialized, starting game without music');
+        }
         
         // ノーツスポーン開始
         this.spawnNotes();
@@ -234,6 +271,11 @@ class DentalRhythmGame {
         if (!this.isPlaying) return;
         
         const currentTime = Date.now();
+        
+        // モバイルでの音楽再生チェック（フォールバック）
+        if (!this.audioInitialized || this.elements.bgm.paused) {
+            this.elements.bgm.play().catch(() => {});
+        }
         
         // タップエフェクト
         this.addTapEffect(color);
@@ -350,10 +392,17 @@ class DentalRhythmGame {
     addTapEffect(color) {
         const button = color === 'red' ? this.elements.redTap : this.elements.blueTap;
         button.style.transform = 'scale(0.95)';
+        button.style.filter = 'brightness(1.2)';
+        
+        // モバイルでのフィードバック強化
+        if ('vibrate' in navigator) {
+            navigator.vibrate(50);
+        }
         
         setTimeout(() => {
             button.style.transform = '';
-        }, 100);
+            button.style.filter = '';
+        }, 150);
     }
     
     addRedNoteEffect() {

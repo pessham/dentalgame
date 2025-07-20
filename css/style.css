@@ -15,6 +15,11 @@ body {
     height: 100vh;
     overflow: hidden;
     color: #1565c0;
+    /* モバイルでのスクロール防止 */
+    position: fixed;
+    width: 100%;
+    /* iOSでのバウンス防止 */
+    -webkit-overflow-scrolling: touch;
 }
 
 .game-container {
@@ -221,6 +226,13 @@ body {
     transition: all 0.1s ease;
     position: relative;
     font-weight: bold;
+    /* モバイルタップ最適化 */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* タップエリア拡大 */
+    min-height: 120px;
 }
 
 .red-tap {
