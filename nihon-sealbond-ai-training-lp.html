@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本シールボンド様専用 AI導入研修プログラム | 補助金75%OFF</title>
+    <meta name="description" content="リスキリング助成金75%OFFでAI導入研修。製造現場×R&D部門の二刀流でさらなる競争優位性を確立。申請代行で御社は押印するだけ。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sub-title {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f39c12, #e74c3c);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* 課題セクション */
+        .problems {
+            background: white;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .problem-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .problem-text {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .solution-text {
+            font-size: 1rem;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        /* 数字で見る課題 */
+        .stats {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #f39c12;
+            display: block;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        /* ソリューション */
+        .solution {
+            background: white;
+        }
+        
+        .solution-highlight {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .solution-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .solution-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+        
+        /* コース */
+        .courses {
+            background: #f8f9fa;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid;
+        }
+        
+        .course-card.beginner {
+            border-top-color: #3498db;
+        }
+        
+        .course-card.intermediate {
+            border-top-color: #f39c12;
+        }
+        
+        .course-card.advanced {
+            border-top-color: #e74c3c;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-level {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .course-content {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        .course-benefit {
+            background: #e8f6f3;
+            padding: 15px;
+            border-radius: 10px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        /* 費用・補助金 */
+        .pricing {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+        }
+        
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .original-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .discounted-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+        
+        .subsidy-info {
+            background: #e8f6f3;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        /* 成果事例 */
+        .results {
+            background: white;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .company-info {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .result-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
+            margin: 20px;
+        }
+        
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(243, 156, 18, 0.4);
+        }
+        
+        /* 連絡先 */
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .sub-title {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .problem-grid,
+            .course-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 成果予測セクションのモバイル最適化 */
+            .result-card {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+            
+            .result-card > div[style*="flex: 0 0 300px"] {
+                flex: none !important;
+                width: 100% !important;
+            }
+            
+            .result-card > div[style*="flex: 1"] {
+                flex: none !important;
+            }
+            
+            .result-card img {
+                height: 200px !important;
+                width: 100% !important;
+            }
+            
+            /* 2番目のカード（製造・R&D）の順序調整 */
+            .result-card:nth-child(3) {
+                flex-direction: column-reverse !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ファーストビュー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="main-title">日本シールボンド様専用 AI導入研修プログラム</h1>
+                <p class="sub-title">
+                    製造現場 × R&D部門の「二刀流」で、<br>
+                    <span class="highlight">補助金75%OFF</span>で次の50年を創る競争優位性を確立
+                </p>
+                <div style="margin-top: 40px;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZoCTymRSxyo?autoplay=1&mute=1" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 15px;"></iframe>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 20px; text-align: left; font-size: 0.9rem;">
+                        <h4 style="margin-bottom: 15px; color: #fff;">🎬 この動画の作成手順</h4>
+                        <div style="line-height: 1.6;">
+                            ・Gemini DeepResearchで日本シールボンド様をリサーチ<br>
+                            ・Notebook LMに情報を保存し「提案スクリプト」作成<br>
+                            ・Google AI Studioでスクリプトから音声生成<br>
+                            ・HeyGenで音声をもとにリップシンク付きのアバター動画を作成<br>
+                            ・VREWで自動字幕をつけ簡易編集で完成
+                        </div>
+                        <p style="margin-top: 15px; font-weight: bold; color: #f39c12;">慣れれば2〜3時間でゼロからこの動画を作る事が可能です！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- こんなお悩みありませんか？ -->
+    <section class="section problems">
+        <div class="container">
+            <h2 class="section-title">こんなお悩みありませんか？</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-text">「競合のDX化に遅れをとっている…」</div>
+                    <div class="solution-text">→ AIで製造品質と開発スピードを同時に向上</div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-text">「熟練技術者の暗黙知が属人化…」</div>
+                    <div class="solution-text">→ AIで技術ノウハウを可視化・継承</div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-text">「新素材開発に時間がかかりすぎる…」</div>
+                    <div class="solution-text">→ AIで開発サイクルを劇的短縮</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課題を数字で -->
+    <section class="section stats">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">製造業が直面する課題を数字で</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">30%</span>
+                    <div class="stat-text">不良品による損失コスト（業界平均）</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">18ヶ月</span>
+                    <div class="stat-text">新素材開発の平均期間</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50%</span>
+                    <div class="stat-text">設備故障による計画外ダウンタイム</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解決策 -->
+    <section class="section solution">
+        <div class="container">
+            <h2 class="section-title">解決策 = リスキリング助成金 × e-Learningパック</h2>
+            <div class="solution-highlight">
+                <div class="solution-title">充実のサポート体制</div>
+                <div class="solution-points">
+                    <div>📚 初級17h・中級20h・上級20h e-Learning + 月1ハンズオン相談会</div>
+                    <div>💰 補助金利用で <strong>実質7.5万円/人（75%OFF）</strong></div>
+                    <div>📋 申請書類は <strong>社労士がフル代行</strong> ─ 御社は押印するだけ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コース選択 -->
+    <section class="section courses">
+        <div class="container">
+            <h2 class="section-title">コースは３タイプから１つを選択</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem; color: #e74c3c; font-weight: bold;">※各コース単体での受講となります。7.5万円は1コースあたりの受講料です。</p>
+            <div class="course-grid">
+                <div class="course-card beginner">
+                    <div class="course-level">初級コース（17h）</div>
+                    <div class="course-content">
+                        ChatGPTでメール自動化／コピーライティング、画像・動画生成、GAS（マクロ）を使ったスプレッドシート（Excel）効率化、Difyを使った簡単RPA、チャットボット作成、セキュリティ研修など
+                    </div>
+                    <div class="course-benefit">業務効率▲30%を実現</div>
+                </div>
+                <div class="course-card intermediate">
+                    <div class="course-level">中級コース（20h）</div>
+                    <div class="course-content">
+                        画像生成・動画生成の発展演習, マーケティング戦略への活用, Web制作の3Dアニメーション活用, 高度FAQチャットボット, Dify発展,部門別ワークフロー自動化, セキュリティ・ガバナンス・モデル, Meta広告データ分析, AIプロジェクト,自社向けAIソリューションの構築
+                    </div>
+                    <div class="course-benefit">開発効率▲40%・品質+20%</div>
+                </div>
+                <div class="course-card advanced">
+                    <div class="course-level">上級コース（20h）</div>
+                    <div class="course-content">
+                        生成AIの最前線とビジネスモデル事例,MVP開発手法,議事録自動生成AI開発,自動営業リスト獲得,業界特化型AIサービスの事例,セキュリティとコンプライアンス,RAG実装,UXデザイン,MLOps,スケーラビリティとパフォーマンス最適化,ローンチ戦略とマーケティング,ユーザーデータ分析, 多言語対応,海外展開,総合プロジェクト
+                    </div>
+                    <div class="course-benefit">製造コスト▲50%・開発期間▲60%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 費用・補助金 -->
+    <section class="section pricing">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">費用 & 補助金フロー</h2>
+            <div class="pricing-card">
+                <div class="original-price">受講料: 30万円/人（1コース）</div>
+                <div class="discounted-price">実質負担: 7.5万円/人（1コース）</div>
+                <div class="subsidy-info">
+                    <strong>助成率:</strong> 経費75%<br>
+                    <strong>お支払い→約5-6ヶ月後に補助金振込</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 日本シールボンド様向け成果予測 -->
+    <section class="section results">
+        <div class="container">
+            <h2 class="section-title">日本シールボンド様における AI導入成果予測</h2>
+            
+            <!-- 1. 製造現場の生産性ブースト -->
+            <div class="result-card" style="margin-bottom: 40px; display: flex; align-items: center; gap: 30px;">
+                <div style="flex: 1;">
+                    <div class="company-info">1. 製造現場の「生産性ブースト」</div>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">医療用シリコーン製造とクリーンルーム管理にAIを活用し、品質向上と効率化を同時実現します。</p>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🏭 医療用シリコーン成形の最適化</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">温度・圧力データをAIでリアルタイム解析し、不良率を限りなくゼロに近づけ、品質の安定性を確保。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🔧 クリーンルーム予知保全</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">IoTセンサー×AIで設備故障を事前予知し、計画外ダウンタイムを撲滅。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">📊 品質管理データの統合分析</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">全工程データをAIが統合分析し、品質向上ポイントを自動特定。</p>
+                    </div>
+                </div>
+                <div style="flex: 0 0 300px;">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop&crop=center" 
+                         alt="製造現場" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;">
+                </div>
+            </div>
+            
+            <!-- 2. R&D部門の開発力強化 -->
+            <div class="result-card" style="margin-bottom: 40px; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; gap: 30px;">
+                <div style="flex: 0 0 300px;">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&crop=center" 
+                         alt="R&D研究開発" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;">
+                </div>
+                <div style="flex: 1;">
+                    <div class="company-info">2. R&D部門の「開発力強化」</div>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">マテリアルズ・インフォマティクスとデジタルツインで新素材開発を革新します。</p>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🧪 新素材開発サイクルの短縮</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">AIが材料特性を予測し、従来18ヶ月の開発期間を6ヶ月に短縮。研究者の経験と勘に頼らない開発を実現。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🔬 デジタルツインによる仮想検証</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">シール製品性能を仮想空間で顧客に提示し、試作コストと時間を大幅削減。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">⚡ 「ニーズをいち早く形にする」の具現化</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">競合に対する圧倒的な優位性確立で、次の50年の成長基盤を構築。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3. 企業理念の実現とさらなる発展 -->
+            <div class="result-card" style="background: linear-gradient(135deg, #2ecc71, #27ae60); display: flex; align-items: center; gap: 30px;">
+                <div style="flex: 1;">
+                    <div class="company-info">3. 「人にやさしい、自然にやさしい企業づくり」の実現</div>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">森社長の理念をAI活用で新たな次元へ発展させます。</p>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">👥 人にやさしい働き方の実現</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">単純作業からの解放で、社員がより創造的で付加価値の高い仕事に集中。働きがいとエンゲージメント向上。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🌱 自然にやさしい生産効率化</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">AI最適化による無駄の削減で、環境負荷を最小化しながら生産性を最大化。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🏥 医療・地域・社会への新たな貢献</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">AI技術を駆使した高品質医療機器で、より多くの患者様の命と健康を守る。</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #fff; margin-bottom: 10px; font-size: 1rem;">🚀 信州発AI企業としての先駆け</h4>
+                        <p style="line-height: 1.5; font-size: 0.9rem;">美しい信州で次世代技術をリードし、地域産業のDX化を牽引する存在に。</p>
+                    </div>
+                </div>
+                <div style="flex: 0 0 300px;">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center" 
+                         alt="企業理念実現" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- サポート体制 -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">充実のサポート体制</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; gap: 20px;">
+                    <div style="background: #e8f6f3; padding: 30px; border-radius: 15px; border-left: 5px solid #27ae60;">
+                        <h3 style="color: #27ae60; margin-bottom: 15px;">🎯 今だけ限定特典</h3>
+                        <div style="font-size: 1.1rem; line-height: 1.6;">
+                            <strong>月1回の対面サポート（合計5回）を無料で実施</strong><br>
+                            テキストでの石澤への個別質問・相談は無制限対応
+                        </div>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; border-left: 5px solid #3498db;">
+                        <h3 style="color: #3498db; margin-bottom: 15px;">👨‍🏫 講師紹介</h3>
+                        <div style="font-size: 1.1rem; line-height: 1.6;">
+                            <strong>社内向けセミナー形式でAI活用講師 石澤 亮輔が直接対応</strong><br>
+                            月1オフライン相談会（5回）で現場に密着したサポートを提供
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">導入スケジュール（例）</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="display: grid; gap: 20px;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #3498db;">
+                        <strong>NOW</strong> | 無料相談・課題ヒアリング
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #f39c12;">
+                        <strong>+1ヶ月</strong> | 計画書提出（社労士代行）
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #2ecc71;">
+                        <strong>+2ヶ月</strong> | 受講開始 & Slack開設
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #e74c3c;">
+                        <strong>+5ヶ月</strong> | AIネイティブ製造・開発スタート
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #9b59b6;">
+                        <strong>+6ヶ月</strong> | 支給決定・補助金入金
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #34495e;">
+                        <strong>6ヶ月〜</strong> | Slackコミュニティで継続アップデート
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">導入までのシンプル３ステップ</h2>
+            <div style="font-size: 1.3rem; margin-bottom: 40px;">
+                ✅ コース（初級 / 中級 / 上級）をその場で選択<br>
+                ✅ 研修開始希望月を確定<br>
+                ✅ 押印→完了（書類作成・提出は当社チームが担当）
+            </div>
+            <a href="https://app.spirinc.com/patterns/availability-sharing/CuveLAwUnplEYK7KBzUsv/confirm" class="cta-button" target="_blank">無料相談を申し込む</a>
+            <a href="tel:080-6521-7742" class="cta-button">今すぐ電話で相談</a>
+        </div>
+    </section>
+
+    <!-- 連絡先 -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">お問い合わせ & 契約フロー</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-title">契約窓口（e-Learning・請求書）</div>
+                    <p><strong>DataPivotStrategies株式会社</strong><br>
+                    〒105-6923 東京都港区虎ノ門4-1-1<br>
+                    神谷町トラストタワー23F<br>
+                    <a href="https://datapivot.co.jp/" style="color: #3498db;">https://datapivot.co.jp/</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-title">信州サポート窓口（講師・現場伴走）</div>
+                    <p><strong>株式会社メタマケ</strong><br>
+                    本社：東京都多摩市落合2-17-10<br>
+                    信州拠点：サザンガク<br>
+                    〒390-0874 長野県松本市大手3-3-9<br>
+                    NTT東日本松本大名町ビル1F<br>
+                    講師・担当：石澤 亮輔<br>
+                    <a href="https://pessham.com/" style="color: #3498db;">https://pessham.com/</a></p>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                        <p style="margin-bottom: 10px;">オフラインでお伺いすることも可能です。</p>
+                        <p><a href="mailto:metamake0601@pessham.com" style="color: #3498db;">metamake0601@pessham.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // アニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.problem-card, .course-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
